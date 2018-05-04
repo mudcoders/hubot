@@ -7,6 +7,8 @@
 #
 #   To @mention the user, use the `:username:` variable
 
+{after} = require 'doo'
+
 module.exports = (robot) ->
 
   welcomes = [
@@ -26,13 +28,13 @@ module.exports = (robot) ->
       'Puff the Fractal Dragon runs out and comes back in, pushing in an old, grizzled wagon. The wagon squeaks, and its contents are covered by a tarp. In front of the wagon hangs a sign that says `Hours of operation: `. Puff settles the wagon on the ground then leans on it to wipe her brow.'
     ],
     [
-      'Puff the Fractal Dragon goes to fetch the *Newbie Welcome Wagon*. It squeaks horribly, and he visibly pains under the strain. Squeak.. Squeak..',
+      'Puff the Fractal Dragon goes to fetch the *Newbie Welcome Wagon*. It squeaks horribly, and he visibly pains under the strain. Squeak... Squeak...',
       'The wagon has a wooden board hastily nailed to the side on which one can read, `Mary Poppins wishes she had me`.',
       'Puff takes out blocks of wood and places them by the wheels to lock the wagon in place, then she lifts the tarp and disappears underneath, inside the wagon. The sounds of sword fighting can be heard, then a faint cry of "Ow! Not in the face!"',
       'A small *pop* is heard, and a small lead toy soldier falls out of the wagon - or maybe from just in front of the wagon.',
       'Puff emerges from the wagon, wielding a hammer she *definitely* didn\'t have on the way in, swings at something inside and yells "AND STAY DOWN!" then she picks up a small bag and lowers the tarp.',
       'Puff dusts herself off then hands :username: the bag. It is faded and reads "Welcome! Open me!"',
-      'Puff whistles a little tune, then uses the hammer to knock out the blocks of wood, and drags the wagon away. Squeak.. Squeak...'
+      'Puff whistles a little tune, then uses the hammer to knock out the blocks of wood, and drags the wagon away. Squeak... Squeak...'
     ],
     [
       'Puff the Fractal Dragon walks in, dragging behind her the *Newbie Welcome Wagon*. It squeaks painfully, and its wheels seem much newer than the rest of the wagon.',
@@ -48,12 +50,18 @@ module.exports = (robot) ->
   robot.enter (res) ->
     messages = res.random welcomes
 
-    doloop = (i) ->
-      # let's add some realism, add a 3-10 second delay between messages
-      setTimeout ->
-        res.send "_#{messages[i].replace(/:username:/, "<@#{res.message.user.id}>")}_"
+    doloop = (i = 0) ->
+      # give puff a half a second to think before typing
+      after 500, ->
+        robot.adapter.client.rtm.sendTyping(res.message.room);
 
-        if i < messages.length - 1
-          doloop(i + 1)
-      , (Math.random() * (10 - 3) + 3) * 1000
-    doloop(0)
+        # typing takes a few seconds, add a 3-10 second delay for realism
+        delay = (Math.random() * (10 - 3) + 3) * 1000
+
+        after delay, ->
+          res.send "_#{messages[i].replace(/:username:/, "<@#{res.message.user.id}>")}_"
+
+          if i < messages.length - 1
+            doloop(i + 1)
+
+    doloop()
