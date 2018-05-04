@@ -32,6 +32,10 @@ module.exports = (robot) ->
       'Puff the Fractal Dragon walks in, dragging behind her the *Newbie Welcome Wagon*. It squeaks painfully, and its wheels seem much newer than the rest of the wagon.',
       'Puff lifts the tarp and buries her head underneath. The sound of rummaging comes out, then a rubber chicken with a pulley falls out, followed quickly by what may be a snow globe representation of the universe.',
       'Puff lets out some muffled cursing, then the sound of frenetic hammering comes out, followed strangely by what could be the song of a bird of paradise. Finally, she emerges with a faded bag on which the words "Ur ohsum" are written in Sharpie. She hands the bag to :username: with a big smile.'
+    ],
+    [
+      'A large wooden rabbit rolls in by its own mysterious locomotion and stops nearby. Following several minutes of loud banging, clunking, gear grinding and gutteral exclamation a small hatch on the back opens and a purple bag is tossed out onto the ground in front of :username:.',
+      'The rabbit commences wheeling off into the distance as the hatch flops open and closed behind it. The bag seemingly weighs 2 kilograms and reads, "Welcome to the Guild. Do not expose contents to direct sunlight." in small print along the cinched opening.'
     ]
   ]
 
