@@ -5,6 +5,7 @@
   "author": "Zachary Flower <zach@mudcoders.com>",
   "description": "Puff the Fractal Dragon is here, contemplating a higher reality.",
   "dependencies": {
+    "doo": "^1.0.0",
     "hubot": "^2.19.0",
     "hubot-diagnostics": "0.0.2",
     "hubot-help": "^0.2.2",
