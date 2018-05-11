@@ -44,6 +44,13 @@ module.exports = (robot) ->
     [
       'A large wooden rabbit rolls in by its own mysterious locomotion and stops nearby. Following several minutes of loud banging, clunking, gear grinding and gutteral exclamation a small hatch on the back opens and a purple bag is tossed out onto the ground in front of :username:.',
       'The rabbit commences wheeling off into the distance as the hatch flops open and closed behind it. The bag seemingly weighs 2 kilograms and reads, "Welcome to the Guild. Do not expose contents to direct sunlight." in small print along the cinched opening.'
+    ],
+    [
+      'Puff the Fractal Dragon comes in on a wild-west-looking wagon pulled by two horses. The back of the wagon is a covered area under which about six people could sit comfortably. On the side is a mirror, below which the words `Check out this winner!` are painted in fading black strokes. The horses have `Welcome Wagon` painted on their fur.',
+      'Puff has `Welcome Wagon` painted on her forehead. At least you hope that\'s what\'s painted. She stops in front of :username: and grins genially, before mutedly somersaulting backwards into the wagon.',
+      'The words "uh-oh" are heard, followed closely by a tintinnabulary crashing sound and the short flight outward of a banana peel. Puff mutters to herself, then appears to be in an animated conversation. It\'s hard to make out the whole thing, but the sentences "This is mine!" and "You promised!", as well as "Don\'t make me take out the whip!"—although in retrospect, that may have been "whipped cream."',
+      'Finally, one can hear the deep *"gong"* recognizably anywhere—to anyone who has watched cartoons—as the sound of a shovel striking someone\'s skull deeply. Puff emerges with a small cardboard box on which the words `Welcome Packet` have been, oddly enough, nailed in, and hands the box to :username:.',
+      'Puff sits on the wagon, yells "Hyup!" and exits stage left.'
     ]
   ]
 
