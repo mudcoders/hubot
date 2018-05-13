@@ -55,6 +55,9 @@ module.exports = (robot) ->
   ]
 
   robot.enter (res) ->
+    if res.message.room != process.env.HUBOT_WELCOME_ROOM
+      return
+
     messages = res.random welcomes
 
     doloop = (i = 0) ->
