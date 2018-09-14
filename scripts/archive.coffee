@@ -43,7 +43,7 @@ module.exports = (robot) ->
       if err
         console.error("Error archiving link from #{res.message.user.name} in #{res.message.room} with id #{res.message.id}", err)
       else
-        console.log("Archiving link from #{res.message.user.name} in #{res.message.room} with id #{res.message.id}")
+        console.log("Archiving link from #{res.message.user.name} in #{res.message.room} with id #{res.message.id}", body)
 
   # check status of elastic search endpoint
   robot.respond /archive status/i, (res) ->
