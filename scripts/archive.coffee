@@ -3,7 +3,6 @@
 #
 # Commands:
 #   hubot archive status - Retuns the status of the archive
-#   hubot archive count <channel> - Retuns the number of links archived for a particular channel
 #
 # Configuration:
 #   ELASTICSEARCH_HOST hostname of the elastic search cluster
@@ -54,23 +53,3 @@ module.exports = (robot) ->
         res.send("Something is wrong with the archive :worried:")
       else
         res.send("Everything looks good :thumbsup:")
-
-    # ask hubot how many messages are recorded for a particular channel
-  robot.respond /archive count (.+)/i, (res) ->
-    query = JSON.stringify({
-      "query": {
-        "match": {
-          "room": "#{res.match[1]}"
-        }
-      }
-    })
-
-    robot.http("#{ELASTICSEARCH_CLUSTER}/#{ELASTICSEARCH_INDEX}/_search?pretty")
-      .header('Content-Type', 'application/json')
-      .header('Accept', 'application/json')
-      .post(query) (err, response, body) ->
-        if err
-          console.error("Error connecting to Elasticsearch cluster", err)
-          res.send("Something is wrong with the archive :worried:")
-        else
-          res.send("There have been #{JSON.parse(body).hits.total} links archived from #{res.match[1]}")
