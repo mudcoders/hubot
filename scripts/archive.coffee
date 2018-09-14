@@ -37,7 +37,7 @@ module.exports = (robot) ->
     ELASTICSEARCH_INDEX = process.env.ELASTICSEARCH_INDEX
 
   # archive all shared links
-  robot.hear /https?:\/\//i, (res) ->
+  robot.hear /https?:\/\/((?!giphy))/i, (res) ->
     robot.http("#{ELASTICSEARCH_CLUSTER}/#{ELASTICSEARCH_INDEX}/_doc/#{res.message.id}?pretty")
     .header('Content-Type', 'application/json')
     .put(JSON.stringify(res.message)) (err, response, body) ->
