@@ -39,6 +39,7 @@ module.exports = (robot) ->
   # archive all shared links
   robot.hear /https?:\/\//i, (res) ->
     robot.http("#{ELASTICSEARCH_CLUSTER}/#{ELASTICSEARCH_INDEX}/#{res.message.room}/#{res.message.id}?pretty")
+    .header('Content-Type', 'application/json')
     .put(JSON.stringify(res.message)) (err, response, body) ->
       if err
         console.error("Error archiving link from #{res.message.user.name} in #{res.message.room} with id #{res.message.id}", err)
@@ -50,6 +51,8 @@ module.exports = (robot) ->
     robot.http("#{ELASTICSEARCH_CLUSTER}/#{ELASTICSEARCH_INDEX}/_cat/indices?v")
     .put(JSON.stringify(res.message)) (err, response, body) ->
       if err
+        console.error("Error connecting to Elasticsaerch cluster", err)
         res.send("Something is wrong with the archive :worried:")
       else
+        console.log("Successfully connected to Elasticsearch cluster", body)
         res.send("Everything looks good :thumbsup:")
