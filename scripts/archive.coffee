@@ -49,6 +49,7 @@ module.exports = (robot) ->
   # check status of elastic search endpoint
   robot.respond /archive status/i, (res) ->
     robot.http("#{ELASTICSEARCH_CLUSTER}/#{ELASTICSEARCH_INDEX}/_cat/indices?v")
+    .header('Content-Type', 'application/json')
     .put(JSON.stringify(res.message)) (err, response, body) ->
       if err
         console.error("Error connecting to Elasticsaerch cluster", err)
