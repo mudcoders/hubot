@@ -52,7 +52,7 @@ module.exports = (robot) ->
     .header('Content-Type', 'application/json')
     .put(JSON.stringify(res.message)) (err, response, body) ->
       if err
-        console.error("Error connecting to Elasticsaerch cluster", err)
+        console.error("Error connecting to Elasticsearch cluster", err)
         res.send("Something is wrong with the archive :worried:")
       else
         console.log("Successfully connected to Elasticsearch cluster", body)
