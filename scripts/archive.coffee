@@ -38,7 +38,7 @@ module.exports = (robot) ->
 
   # archive all shared links
   robot.hear /https?:\/\//i, (res) ->
-    robot.http("#{ELASTICSEARCH_CLUSTER}/#{ELASTICSEARCH_INDEX}/#{res.message.id}?pretty")
+    robot.http("#{ELASTICSEARCH_CLUSTER}/#{ELASTICSEARCH_INDEX}/_doc/#{res.message.id}?pretty")
     .header('Content-Type', 'application/json')
     .put(JSON.stringify(res.message)) (err, response, body) ->
       if err
