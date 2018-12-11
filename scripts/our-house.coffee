@@ -7,7 +7,7 @@
 module.exports = (robot) ->
 
   robot.respond /commands/i, (res) ->
-    res.reply 'set profile <string>\nset game <string>\nfinger <username>\ngames'
+    res.reply 'set profile <string>\nset game <string>\nfinger <username>\ngames\n8ball\nroll #d#\nroll dice\nflip a coin'
 
 # Setters
   robot.respond /set profile (.*)/i, (res) ->
