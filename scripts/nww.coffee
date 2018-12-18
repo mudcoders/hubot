@@ -25,9 +25,6 @@ module.exports = (robot) ->
       'Puff screams "YEAH? WELL YOUR DOG MUST HAVE TAUGHT YOU ALL THAT YOU KNOW!".'
     ],
     [
-      'Puff the Fractal Dragon runs out and comes back in, pushing in an old, grizzled wagon. The wagon squeaks, and its contents are covered by a tarp. In front of the wagon hangs a sign that says `Hours of operation: `. Puff settles the wagon on the ground then leans on it to wipe her brow.'
-    ],
-    [
       'Puff the Fractal Dragon goes to fetch the *Newbie Welcome Wagon*. It squeaks horribly, and she visibly pains under the strain. Squeak... Squeak...',
       'The wagon has a wooden board hastily nailed to the side on which one can read, `Mary Poppins wishes she had me`.',
       'Puff takes out blocks of wood and places them by the wheels to lock the wagon in place, then she lifts the tarp and disappears underneath, inside the wagon. The sounds of sword fighting can be heard, then a faint cry of "Ow! Not in the face!"',
