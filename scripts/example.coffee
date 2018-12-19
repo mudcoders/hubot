@@ -9,7 +9,7 @@ module.exports = (robot) ->
   robot.hear /badger/i, (res) ->
     res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
 
-  robot.hear /beard/i (res) -> {
+  robot.hear /beard/i, (res) -> {
     messageData = {
       channel: res.message.room,
       text: ':eric:'
