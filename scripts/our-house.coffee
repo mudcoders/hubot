@@ -31,5 +31,5 @@ module.exports = (robot) ->
 
   robot.respond /games/i, (res) ->
     res.send 'Games run by our users:'
-    for user in robot.brain.users
+    for user in robot.brain.data.users
       res.send robot.brain.get user.name + '_game'

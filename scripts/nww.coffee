@@ -72,3 +72,5 @@ module.exports = (robot) ->
             doloop(i + 1)
 
     doloop()
+
+    res.send "I also know many things about our Guild Members. You can ask me about individuals with '@puff finger <username>' and list all known games with '@puff games'" 
