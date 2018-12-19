@@ -27,11 +27,9 @@ module.exports = (robot) ->
     if users.length is 1
       user = users[0]
       res.send robot.brain.get user.name + '_profile'
-      res.send robot.brain.get user.name + '_game'
+      res.send "Games:" robot.brain.get user.name + '_game'
 
   robot.respond /games/i, (res) ->
-    responseText = 'Games run by our users:'
+    res.send 'Games run by our users:'
     for user in robot.brain.users
-      responseText += robot.brain.get user.name + '_game'
-      responseText += '\n'
-    res.send responseText
+      res.send robot.brain.get user.name + '_game'
