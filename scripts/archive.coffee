@@ -60,7 +60,7 @@ module.exports = (robot) ->
 
   # get the archive
   robot.respond /archive dump/i, (res) ->
-    robot.http("#{ELASTICSEARCH_CLUSTER}/#{ELASTICSEARCH_INDEX}/_cat/indices?v")
+    robot.http("#{ELASTICSEARCH_CLUSTER}/#{ELASTICSEARCH_INDEX}/_search?pretty=true&q=*:*&size=100")
     .header('Content-Type', 'application/json')
     .put(JSON.stringify(res.message)) (err, response, body) ->
       if err
