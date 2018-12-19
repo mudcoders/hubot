@@ -62,7 +62,7 @@ module.exports = (robot) ->
   robot.respond /archive dump/i, (res) ->
     robot.http("#{ELASTICSEARCH_CLUSTER}/#{ELASTICSEARCH_INDEX}/_search?pretty=true&q=*:*&size=100")
     .header('Content-Type', 'application/json')
-    .put(JSON.stringify(res.message)) (err, response, body) ->
+    .get(JSON.stringify(res.message)) (err, response, body) ->
       if err
         console.error("Error connecting to Elasticsearch cluster", err)
         res.send("Something is wrong with the archive :worried:")
