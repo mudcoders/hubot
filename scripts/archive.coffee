@@ -57,3 +57,16 @@ module.exports = (robot) ->
       else
         console.log("Successfully connected to Elasticsearch cluster", body)
         res.send("Everything looks good :thumbsup:")
+
+  # get the archive
+  robot.respond /archive dump/i, (res) ->
+    robot.http("#{ELASTICSEARCH_CLUSTER}/#{ELASTICSEARCH_INDEX}/_cat/indices?v")
+    .header('Content-Type', 'application/json')
+    .put(JSON.stringify(res.message)) (err, response, body) ->
+      if err
+        console.error("Error connecting to Elasticsearch cluster", err)
+        res.send("Something is wrong with the archive :worried:")
+      else
+        console.log("Successfully connected to Elasticsearch cluster", body)
+        res.send(body)
+        res.send(response)
