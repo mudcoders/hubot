@@ -7,13 +7,18 @@
 module.exports = (robot) ->
 
   robot.respond /commands/i, (res) ->
-    res.reply 'set profile <string>\nfinger <username, without the @>\n8ball\nroll #d#\nroll dice\nflip a coin'
+    res.reply 'set profile <string>\nset game <string>\nfinger <username, without the @>\n8ball\nroll #d#\nroll dice\nflip a coin'
 
 # Setters
   robot.respond /set profile (.*)/i, (res) ->
     description = res.match[1]
     res.reply 'Profile Set'
     robot.brain.set res.envelope.user.name + '_profile', description
+
+  robot.respond /set game (.*)/i, (res) ->
+    description = res.match[1]
+    res.reply 'Game Set'
+    robot.brain.set res.envelope.user.name + '_game', description
 
 # Getters
   robot.respond /finger (.*)/i, (res) ->
