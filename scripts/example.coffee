@@ -7,16 +7,14 @@
 module.exports = (robot) ->
 
   robot.hear /badger/i, (res) ->
+    res.message.reactions.add 'badger'
     res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
 
   robot.hear /beard/i, (res) -> 
-    messageData = {
-      channel: res.message.room,
-      text: ':oestrich:'
-    }
-    res.send messageData
+    res.message.reactions.add 'oestrich'
   
   robot.hear /leporidae/i, (res) -> 
+    res.message.reactions.add 'rabbit'
     messageData = {
       channel: res.message.room,
       text: ':rabbit: :rabbit2:'
