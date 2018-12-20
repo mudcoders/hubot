@@ -12,7 +12,14 @@ module.exports = (robot) ->
   robot.hear /beard/i, (res) -> 
     messageData = {
       channel: res.message.room,
-      text: ':eric:'
+      text: ':oestrich:'
+    }
+    res.send messageData
+  
+  robot.hear /leporidae/i, (res) -> 
+    messageData = {
+      channel: res.message.room,
+      text: ':rabbit: :rabbit2:'
     }
     res.send messageData
   
