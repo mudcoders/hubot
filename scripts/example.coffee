@@ -3,29 +3,16 @@
 #
 # Notes:
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
-{WebClient} = require "@slack/client"
-
 module.exports = (robot) ->
-    if robot.adapter.options && robot.adapter.options.token
-        web = new WebClient robot.adapter.options.token
 
   robot.hear /badger/i, (res) ->
-    web.reactions.add
-      name: 'badger',
-      channel: "#{msg.message.rawMessage.channel}",
-      timestamp: "#{msg.message.rawMessage.ts}"
     res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
 
   robot.hear /beard/i, (res) -> 
-    res.message.reactions.add ':oestrich:'
+    res.send ':oestrich:'
   
   robot.hear /leporidae/i, (res) -> 
-    res.message.reactions.add ':rabbit:'
-    messageData = {
-      channel: res.message.room,
-      text: ':rabbit: :rabbit2:'
-    }
-    res.send messageData
+    res.send ":rabbit: :rabbit2:"
   
   robot.topic (res) ->
     res.send "#{res.message.text}? That's a Paddlin'"
