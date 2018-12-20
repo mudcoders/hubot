@@ -26,10 +26,13 @@ module.exports = (robot) ->
     users = robot.brain.usersForFuzzyName(name)
     if users.length is 1
       user = users[0]
-      if(robot.brain.get user.name + '_profile' == '' and robot.brain.get user.name + '_game' = '')
+      pX = res.send robot.brain.get user.name + '_profile'
+      pY = res.send robot.brain.get user.name + '_game'
+
+      if !pX? and !pY?
         res.send "I don't know about that person yet :neutral_face:"
       else
-        res.send robot.brain.get user.name + '_profile'
-        res.send robot.brain.get user.name + '_game'
+        res.send pX
+        res.send pY
     else
       res.send "I don't know who that is at all :neutral_face:"
