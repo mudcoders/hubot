@@ -7,18 +7,13 @@
 module.exports = (robot) ->
 
   robot.respond /commands/i, (res) ->
-    res.reply 'set profile <string>\nset game <string>\nfinger <username>\ngames\n8ball\nroll #d#\nroll dice\nflip a coin'
+    res.reply 'set profile <string>\nfinger <username, without the @>\n8ball\nroll #d#\nroll dice\nflip a coin'
 
 # Setters
   robot.respond /set profile (.*)/i, (res) ->
     description = res.match[1]
     res.reply 'Profile Set'
     robot.brain.set res.envelope.user.name + '_profile', description
-
-  robot.respond /set game (.*)/i, (res) ->
-    description = res.match[1]
-    res.reply 'Game Set'
-    robot.brain.set res.envelope.user.name + '_game', description
 
 # Getters
   robot.respond /finger (.*)/i, (res) ->
@@ -28,8 +23,5 @@ module.exports = (robot) ->
       user = users[0]
       res.send robot.brain.get user.name + '_profile'
       res.send robot.brain.get user.name + '_game'
-
-  robot.respond /games/i, (res) ->
-    res.send 'Games run by our users:'
-    for user in robot.brain.data.users
-      res.send robot.brain.get user.name + '_game'
+    else
+      res.send "I don't know about that person yet :neutral_face:"
