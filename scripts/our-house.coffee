@@ -26,10 +26,10 @@ module.exports = (robot) ->
     users = robot.brain.usersForFuzzyName(name)
     if users.length is 1
       user = users[0]
-      pX = res.send robot.brain.get user.name + '_profile'
-      pY = res.send robot.brain.get user.name + '_game'
+      pX = robot.brain.get user.name + '_profile'
+      pY = robot.brain.get user.name + '_game'
 
-      if pX? or pY? then res.send pX
+      if pX? then res.send pX
 
       if pY? then res.send pY
 
