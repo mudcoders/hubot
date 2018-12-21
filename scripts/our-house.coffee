@@ -33,7 +33,7 @@ module.exports = (robot) ->
 
       if pY? then res.send pY
 
-      if !pY? and !pX? then res.send "I don't know about that person yet :neutral_face:"
+      if !pY? && !pX? then res.send "I don't know about that person yet :neutral_face:"
 
     else
       res.send "I don't know who that is at all :neutral_face:"
