@@ -29,10 +29,11 @@ module.exports = (robot) ->
       pX = res.send robot.brain.get user.name + '_profile'
       pY = res.send robot.brain.get user.name + '_game'
 
-      if !pX? and !pY?
-        res.send "I don't know about that person yet :neutral_face:"
-      else
-        res.send pX
-        res.send pY
+      if pX? or pY? then res.send pX
+
+      if pY? then res.send pY
+
+      if !pY? and !pX? then res.send "I don't know about that person yet :neutral_face:"
+
     else
       res.send "I don't know who that is at all :neutral_face:"
