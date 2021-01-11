@@ -1,0 +1,15 @@
+version: '3'
+services:
+  hubot:
+    build: .
+    restart: always
+    depends_on:
+      - redis
+  redis:
+    image: redis
+    restart: always
+    volumes:
+      - redis:/data
+
+volumes:
+  redis:
