@@ -3,6 +3,10 @@ services:
   hubot:
     build: .
     restart: always
+    environment:
+      - HUBOT_SLACK_TOKEN=${HUBOT_SLACK_TOKEN}
+      - HUBOT_WELCOME_ROOM=${HUBOT_WELCOME_ROOM}
+      - REDIS_URL=${REDIS_URL}
     depends_on:
       - redis
   redis:
