@@ -1,0 +1,13 @@
+# fly.toml file generated for mudcoders-hubot on 2022-05-04T09:41:30-06:00
+
+app = "mudcoders-hubot"
+
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[env]
+
+[experimental]
+  allowed_public_ports = []
+  auto_rollback = true
